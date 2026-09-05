@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
   <arg name="vehicle_id" default="$(env VEHICLE_ID default)"/>
+
+  <!-- Autobus Vehicle Interface: bridges Autoware commands to RAIBOCart -->
+  <include file="$(find-pkg-share autobus_vehicle_interface)/launch/autobus_vehicle_interface.launch.xml">
+    <arg name="cmd_vel_topic"    value="/cmd_vel"/>
+    <arg name="motor_data_topic" value="/raibocart/motor/data"/>
+  </include>
 </launch>
